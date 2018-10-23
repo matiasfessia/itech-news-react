@@ -1,0 +1,7 @@
+.site-wrapper {
+  grid-area: content;
+  display: grid;
+  grid-template-areas: "header" "section-wrapper" "sign-up" "social";
+  grid-template-rows: auto;
+  padding: 0 2em;
+}
