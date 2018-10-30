@@ -29,7 +29,7 @@ class AboutUs extends Component {
     return (
       <section className="about-us">
         <h2>{ this.state.content['about-us-title']}</h2>
-        <img src={ this.state.content['about-us-pic'] } />
+        <img src={ this.state.content['about-us-pic'] } alt="funny monkey" />
         <div dangerouslySetInnerHTML={{__html: this.state.content['about-us-text']}}></div>
       </section>
     );

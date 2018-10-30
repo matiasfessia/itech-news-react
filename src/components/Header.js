@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 class Header extends Component {
   render() {
+    // console.log('this.props.postsLoved', this.props.postsLoved);
     return (
       <header>
-        <h1 className="logo">ITECH NEWS</h1>
+        <div className="top-header">
+          <h1 className="logo">ITECH NEWS</h1>
+        </div>
         <nav className="navigation">
           <ul>
             <li>
-              <button type="button" className="link-home link-to-section">Inicio</button>
+              <Link to='/' className="link-home link-to-section">Inicio</Link>
             </li>
             <li>
-              <button type="button" className="link-about-us link-to-section">Quienes somos</button>
+              <Link to='/about-us' className="link-about-us link-to-section">Quienes somos</Link>
             </li>
             <li>
               <button type="button" className="link-contact link-to-section">Contacto</button>
