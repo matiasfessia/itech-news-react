@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <header>
         <div className="top-header">
-          <h1 className="logo">ITECH NEWS</h1>
+          <h1 className="logo">ITECH NEWS {this.props.sarasa}</h1>
         </div>
         <nav className="navigation">
           <ul>

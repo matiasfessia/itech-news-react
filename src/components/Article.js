@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Article.scss';
 
 class Article extends Component {
@@ -6,7 +7,9 @@ class Article extends Component {
     return (
       <article>
         <div className="content">
-          <h1>{this.props.post.title}</h1>
+          <Link to={`/${this.props.post.slug}`} className="link-home link-to-section">
+            <h1>{this.props.post.title}</h1>
+          </Link>
           <h2>Publicado por {this.props.post.author} el dia {this.props.post.date}</h2>
           <p>{this.props.post.extract}</p>
         </div>
