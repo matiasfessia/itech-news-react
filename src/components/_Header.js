@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import './Header.scss';
 
 class Header extends Component {
-
   render() {
-    // console.log('this.props.postsLoved', this.props.postsLoved);
+    // console.log('this.props.favorites', this.props.favorites);
     return (
       <header>
         <div className="top-header">
-          <h1 className="logo">ITECH NEWS {this.props.sarasa}</h1>
-          <ul>
-            { this.props.favorites.map(favorite => (
-              <li>{favorite.title}</li>
-            ))
-            }
-          </ul>
+          <h1 className="logo">ITECH NEWS</h1>
+          <div className="posts-loved">
+            <ul>
+            { this.props.favorites.map(post => (
+              <li>{ post.title }</li>
+            ))}
+            </ul>
+          </div>
         </div>
         <nav className="navigation">
           <ul>
@@ -29,7 +29,6 @@ class Header extends Component {
               <button type="button" className="link-contact link-to-section">Contacto</button>
             </li>
           </ul>
-          <h1>{this.props.user && this.props.user.email}</h1>
         </nav>
       </header>
     );

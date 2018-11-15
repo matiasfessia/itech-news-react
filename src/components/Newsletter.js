@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+// import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import axios from 'axios';
+
 
 class Newsletter extends Component {
   constructor(props) {
@@ -9,7 +12,8 @@ class Newsletter extends Component {
       email: {
         value: '',
         error: ''
-      }
+      },
+      completed: false
     };
   }
 
@@ -43,6 +47,8 @@ class Newsletter extends Component {
       axios.post('http://localhost:3001/api/newsletter-subscription', payload)
       .then(response => {
         if (response.status === 200) {
+          // this.setState({ completed: true});
+          this.props.history.push('/')
           alert('Se ha registrado con exito');
         }
       })
@@ -58,6 +64,12 @@ class Newsletter extends Component {
   }
 
   render() {
+    /*
+    if (this.state.completed === true) {
+      return <Redirect to='/' />
+    }
+    */
+
     return (
       <section className="newsletter">
         <h2>{ this.state.content['newsletter-title'] }</h2>
@@ -87,4 +99,4 @@ class Newsletter extends Component {
   }
 }
     
-export default Newsletter;
+export default withRouter(Newsletter);

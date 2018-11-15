@@ -11,6 +11,7 @@ class ArticleView extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.isLoggedIn);
     const params = this.props.match.params;
     axios.get('http://localhost:3001/api/posts/' + params.slug)
       .then(response => {
@@ -22,7 +23,7 @@ class ArticleView extends Component {
   }
 
   handleAddToFavoritesClick = () => {
-    this.props.sarasa();
+    this.props.sarasa(this.state.post);
   }
 
   render() {
@@ -39,7 +40,7 @@ class ArticleView extends Component {
 
           </div>
           <div className="picture" style={{ backgroundImage: `url(${this.state.post.picture})` }}></div>
-          <button type="button" onClick={this.handleAddToFavoritesClick}>Agregar a favoritos</button>
+          { this.props.user && <button type="button" onClick={this.handleAddToFavoritesClick}>Agregar a favoritos</button>}
         </div>
         }
       </article>
